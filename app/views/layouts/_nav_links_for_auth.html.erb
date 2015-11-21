@@ -1,10 +1,35 @@
-<% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-<% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-<% end %>
-<% if user_signed_in? %>
-  <li><%= link_to 'Users', users_path %></li>
-<% end %>
+<li class="dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Workers
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+  <% if worker_signed_in? %>
+  <li><%= link_to 'Edit account', edit_worker_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_worker_session_path, :method=>'delete' %></li>
+  <% else %>
+  <li><%= link_to 'Sign in', new_worker_session_path %></li>
+  <li><%= link_to 'Sign up', new_worker_registration_path %></li>
+  <% end %>
+  <% if worker_signed_in? %>
+  <li><%= link_to 'workers', workers_path %></li>
+  <% end %>
+</ul>
+</li>
+
+<li class="dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Costumers
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+  <% if costumer_signed_in? %>
+  <li><%= link_to 'Edit account', edit_costumer_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_costumer_session_path, :method=>'delete' %></li>
+  <% else %>
+  <li><%= link_to 'Sign in', new_costumer_session_path %></li>
+  <li><%= link_to 'Sign up', new_costumer_registration_path %></li>
+  <% end %>
+  <% if costumer_signed_in? %>
+  <li><%= link_to 'costumers', costumers_path %></li>
+  <% end %>
+</ul>
+</li>

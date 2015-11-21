@@ -1,0 +1,3 @@
+class Costumer < User
+
+end
