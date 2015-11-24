@@ -38,8 +38,14 @@ group :development, :test do
   gem 'pry-byebug'
 end
 group :test do
+  gem 'simplecov', require: false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-select2', '>= 4.0.0'
 end

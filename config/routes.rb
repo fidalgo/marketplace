@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :workers
   devise_for :costumers
   devise_for :users
-  resources :workers
+  resources :workers do
+    collection do
+      get 'skills_list'
+    end
+    get 'skills', on: :member
+  end
   resources :costumers
 end

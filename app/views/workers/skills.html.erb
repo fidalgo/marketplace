@@ -1,0 +1,34 @@
+<h3>Edit Worker</h3>
+<%= form_for(@worker) do |f| %>
+<% if @worker.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@worker.errors.count, "error") %>
+    prohibited this link from being saved:</h2>
+
+  <ul>
+    <% @worker.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
+</div>
+
+<div class="form-group field">
+  <%= f.label :email %><br>
+  <%= f.email_field :email %>
+</div>
+
+<div class="form-group field">
+  <%= f.label :skills_list %><br>
+  <%= f.select :skills_list, @worker.skills_list, {},
+  {multiple: true, class: 'form-control skills-input', include_hidden: true} %>
+</div>
+<div class="actions">
+  <%= f.submit 'Save', class: 'btn btn-default' %>
+</div>
+<% end %>
