@@ -1,11 +1,3 @@
 <div class="container">
-  <div class="row">
-    <h3>Seach by skills (comma separated)</h3>
-    <div class="column">
-      <%= form_tag(results_costumers_path, :method => "get") do %>
-      <%= text_field_tag :skills, params[:skills], placeholder: "Search Skills" %>
-      <%= submit_tag "Search" %>
-      <% end %>
-    </div>
-  </div>
+<%= render 'search_bar' %>
 </div>
