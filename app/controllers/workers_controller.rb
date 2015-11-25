@@ -6,11 +6,7 @@ class WorkersController < ApplicationController
   end
 
   def skills_list
-    if params[:query].present?
-      render json: current_user.skills.where('name LIKE ?', "%#{params[:query]}%")
-    else
-      render json: current_user.skills_list
-    end
+    render json: Worker.find_name_by_match(params[:query])
   end
 
   def show
@@ -28,7 +24,6 @@ class WorkersController < ApplicationController
       render :skills
     end
   end
-
 
   private
 

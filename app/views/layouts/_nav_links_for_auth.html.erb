@@ -4,14 +4,13 @@
 </a>
 <ul class="dropdown-menu">
   <% if worker_signed_in? %>
+  <li><%= link_to 'Skills', skills_worker_path(current_worker) %></li>
+  <li><%= link_to 'List workers', workers_path %></li>
   <li><%= link_to 'Edit account', edit_worker_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_worker_session_path, :method=>'delete' %></li>
   <% else %>
   <li><%= link_to 'Sign in', new_worker_session_path %></li>
   <li><%= link_to 'Sign up', new_worker_registration_path %></li>
-  <% end %>
-  <% if worker_signed_in? %>
-  <li><%= link_to 'workers', workers_path %></li>
   <% end %>
 </ul>
 </li>
@@ -22,14 +21,13 @@
 </a>
 <ul class="dropdown-menu">
   <% if costumer_signed_in? %>
+  <li><%= link_to 'Search workers', search_costumers_path %></li>
   <li><%= link_to 'Edit account', edit_costumer_registration_path %></li>
+  <li><%= link_to 'List costumers', costumers_path %></li>
   <li><%= link_to 'Sign out', destroy_costumer_session_path, :method=>'delete' %></li>
   <% else %>
   <li><%= link_to 'Sign in', new_costumer_session_path %></li>
   <li><%= link_to 'Sign up', new_costumer_registration_path %></li>
-  <% end %>
-  <% if costumer_signed_in? %>
-  <li><%= link_to 'costumers', costumers_path %></li>
   <% end %>
 </ul>
 </li>

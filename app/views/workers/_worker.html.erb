@@ -1,2 +1,7 @@
 <td><%= link_to worker.name, worker %></td>
 <td><%= link_to worker.email, worker %></td>
+<td>
+  <% worker.skills.each do |skill| %>
+  <span class="label label-default"><%= skill.name %></span>
+  <% end %>
+</td>

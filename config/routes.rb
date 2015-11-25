@@ -9,5 +9,10 @@ Rails.application.routes.draw do
     end
     get 'skills', on: :member
   end
-  resources :costumers
+  resources :costumers do
+    collection do
+      get 'search'
+      get 'results'
+    end
+  end
 end

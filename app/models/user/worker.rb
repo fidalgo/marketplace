@@ -1,4 +1,6 @@
 class Worker < User
+  include SearchableSkills
+  
   has_many :skillings, dependent: :destroy
   has_many :skills, through: :skillings
 

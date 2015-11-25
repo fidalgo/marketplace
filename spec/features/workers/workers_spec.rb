@@ -1,18 +1,17 @@
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature 'Skillings management' do
+feature 'Workers management' do
   after(:each) do
     Warden.test_reset!
   end
 
-  scenario 'worker can add skillings' do
-    skills = %w(thinker doer)
+  scenario 'worker can see all workers' do
     worker = FactoryGirl.create(:worker)
-    worker.skills_list = skills
+    workers_list = FactoryGirl.create_list(:worker, 10)
     login_as(worker, scope: :user)
-    visit skills_worker_path(worker)
-    expect(page).to have_content(/.*#{skills[0]}.*|.*#{skills[1]}.*/)
+    visit workers_path
+    expect(page).to have_content workers_list.sample.email
   end
 
   scenario 'Costumer can see worker skills' do
@@ -23,5 +22,4 @@ feature 'Skillings management' do
     visit worker_path(worker)
     expect(page).to have_content worker.skills.pluck(:name).join(' ')
   end
-
 end
