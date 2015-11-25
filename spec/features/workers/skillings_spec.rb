@@ -17,7 +17,10 @@ feature 'Skillings management' do
 
   scenario 'Costumer can see worker skills' do
     worker = FactoryGirl.create(:worker)
-    FactoryGirl.create_list(:skilling, 10, worker: worker)
+    Faker::Hipster.words(10).each do |skill|
+      skill = FactoryGirl.create(:skill, name: skill)
+      FactoryGirl.create(:skilling, worker: worker, skill: skill)
+    end
     costumer = FactoryGirl.create(:costumer)
     login_as(costumer, scope: :user)
     visit worker_path(worker)

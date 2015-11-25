@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :skill do
-    name { Faker::Lorem.word }
+    name { Faker::Hipster.words }
   end
 end
